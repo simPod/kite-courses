@@ -1,4 +1,4 @@
-import { Mail, MessageSquare, Instagram } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -100,18 +100,6 @@ const Contact = () => {
                     WhatsApp
                   </h4>
                   <p className="text-white/80">+44 123 456 7890</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 mt-1">
-                  <Instagram className="text-secondary" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-montserrat font-semibold mb-2">
-                    Instagram
-                  </h4>
-                  <p className="text-white/80">@kiteboardingcoach</p>
                 </div>
               </div>
             </div>

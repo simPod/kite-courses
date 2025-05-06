@@ -1,4 +1,4 @@
-import { FaInstagram, FaFacebook, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,9 +15,6 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-6 mb-8 md:mb-0">
-            <a href="#" className="text-white hover:text-secondary transition-colors">
-              <FaInstagram className="text-2xl" />
-            </a>
             <a href="#" className="text-white hover:text-secondary transition-colors">
               <FaFacebook className="text-2xl" />
             </a>
