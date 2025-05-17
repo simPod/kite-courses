@@ -12,10 +12,45 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1597434903211-78810997e75a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" />
     
+    <!-- GitHub Pages routing -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    
     <!-- Preload Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Maps API script to load asynchronously -->
+    <script>
+      // This function will help load the Google Maps API conditionally based on environment variables
+      function loadGoogleMaps() {
+        const script = document.createElement('script');
+        script.src = "https://maps.googleapis.com/maps/api/js?callback=initMaps&key=" + 
+                   (import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "");
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+      
+      // Load the Google Maps script after the page content has loaded
+      window.addEventListener('load', loadGoogleMaps);
+    </script>
   </head>
   <body>
     <div id="root"></div>

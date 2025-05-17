@@ -27,6 +27,10 @@ jobs:
         run: |
           # Add base path configuration to environment for build
           echo "VITE_BASE_PATH=./" >> $GITHUB_ENV
+          # Set Google Maps API key if available
+          if [ "${{ secrets.GOOGLE_MAPS_API_KEY }}" != "" ]; then
+            echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> $GITHUB_ENV
+          fi
           npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
