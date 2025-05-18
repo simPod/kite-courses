@@ -21,7 +21,7 @@ export default defineConfig({
       "@": resolve(import.meta.dirname, "client", "src"),
     },
   },
-  base: '/kite-courses/',
+  base: '/',
   root: resolve(import.meta.dirname, "client"),
   build: {
     rollupOptions: {
