@@ -23,7 +23,7 @@ function App() {
     // Initialize Google Maps
     const loadGoogleMaps = () => {
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}&loading=async&callback=initMaps`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}&loading=async&callback=initMaps&libraries=marker`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
