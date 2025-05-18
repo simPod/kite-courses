@@ -39,7 +39,7 @@ const locations: Location[] = [
     description:
       "Known for its consistent winds and flat, shallow lagoons, El Gouna offers perfect conditions for all skill levels. The warm weather and stunning Red Sea views make it an ideal training ground.",
     image:
-      "https://pixabay.com/get/gd14ef2327cb308ebd08c1a6c65c6fc4cc350a9b9a31a8cb4359ae79693c0896502ac84ce8d71605e4ab0af727d9f85bff45f27405b63731bb7ffa7f7bd531c03_1280.jpg",
+      "https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg",
     mapId: "el-gouna-map",
     coordinates: { lat: 27.4042, lng: 33.6731 },
     features: [
@@ -59,7 +59,7 @@ const locations: Location[] = [
     description:
       "The emerald waters and thermal winds of Lefkada create a Mediterranean kiteboarding paradise. With breathtaking scenery and ideal conditions, it's perfect for combining skill advancement with an unforgettable vacation.",
     image:
-      "https://pixabay.com/get/g44d677dc08f39bc6ce70ff551c1147474c1964603b81114ccfd415165cd59b217b41cd34c0baffbc9450ebd609a190f49863ca7ede76b5cf426f338488cb981b_1280.jpg",
+      "https://images.pexels.com/photos/3180999/pexels-photo-3180999.jpeg",
     mapId: "lefkada-map",
     coordinates: { lat: 38.8318, lng: 20.7075 },
     features: [
