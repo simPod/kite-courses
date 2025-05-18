@@ -136,7 +136,7 @@ const Locations = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           {locations.map((location) => (
-            <Card 
+            <div 
               key={location.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden transition-all transform hover:-translate-y-2"
             >
@@ -148,7 +148,7 @@ const Locations = () => {
                 />
               </div>
 
-              <CardContent className="p-6">
+              <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-2xl font-montserrat font-bold text-foreground">
                     {location.name}, {location.country}
@@ -171,22 +171,20 @@ const Locations = () => {
                   ))}
                 </div>
 
-                {/* Interactive Map */}
+                {/* Location Map */}
                 <div
                   id={location.mapId}
                   className="h-64 rounded-lg overflow-hidden mb-6 bg-gray-200"
                 ></div>
 
-                <Button
-                  asChild
-                  className={`w-full ${location.buttonColor}`}
+                <a 
+                  href="#contact"
+                  className={`block w-full py-2 px-4 text-center rounded-md font-medium ${location.buttonColor}`}
                 >
-                  <a href="#contact">
-                    Book {location.name} Sessions
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+                  Book {location.name} Sessions
+                </a>
+              </div>
+            </div>
           ))}
         </div>
       </div>
