@@ -36,21 +36,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google Maps API script to load asynchronously -->
-    <script>
-      // This function will help load the Google Maps API conditionally based on environment variables
-      function loadGoogleMaps() {
-        const script = document.createElement('script');
-        script.src = "https://maps.googleapis.com/maps/api/js?callback=initMaps&key=" + 
-                   (import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "");
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-      }
-      
-      // Load the Google Maps script after the page content has loaded
-      window.addEventListener('load', loadGoogleMaps);
-    </script>
   </head>
   <body>
     <div id="root"></div>
