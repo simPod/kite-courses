@@ -98,7 +98,7 @@ const Locations = () => {
           ],
         });
 
-        new google.maps.Marker({
+        new google.maps.marker.AdvancedMarkerElement({
           position: location.coordinates,
           map,
           title: `${location.name} Kiteboarding Spot`,
