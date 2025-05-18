@@ -96,6 +96,7 @@ const Locations = () => {
               ],
             },
           ],
+          mapId: location.mapId
         });
 
         new google.maps.marker.AdvancedMarkerElement({
