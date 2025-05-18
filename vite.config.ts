@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import { resolve } from "node:path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
@@ -18,15 +18,18 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@db": path.resolve(import.meta.dirname, "db"),
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": resolve(import.meta.dirname, "client", "src"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  base: '/kite-courses/',
+  root: resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    rollupOptions: {
+      input: {
+        main: resolve(import.meta.dirname, 'client', 'index.html'),
+      }
+    },
+    outDir: resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
 });
