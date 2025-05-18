@@ -8,7 +8,7 @@ import Locations from "./components/Locations";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import { Toaster } from "@/components/ui/toaster";
+// Remove Toaster temporarily while fixing paths
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,7 +49,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster />
     </>
   );
 }

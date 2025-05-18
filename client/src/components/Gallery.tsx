@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+// Simplified gallery without dialog for now
+// import { Dialog, DialogContent } from "./ui/dialog";
 
 interface GalleryImage {
   id: number;
@@ -11,43 +12,43 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "https://pixabay.com/get/g46b77e8b3853777ed1a826ad022b49a0ea3919bd04d077762a19f9638a38e9685f54c4e1880417b05af69dc26b8922647d2205d17b5ffbe844d2c356407e4f90_1280.jpg",
-    alt: "Kiteboarding action shot",
+    src: "https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg",
+    alt: "Kiteboarding action shot over blue water",
   },
   {
     id: 2,
-    src: "https://pixabay.com/get/g79062f3b382ecccf0320aec30980a6c1ab11511f40ddb794a6e8de647b850837c02106c18aacd59f2e54c20c52c1ae8e9d0ab91e7959a43bec09dcd01923c220_1280.jpg",
-    alt: "Kiteboarding in clear waters",
+    src: "https://images.pexels.com/photos/1782146/pexels-photo-1782146.jpeg",
+    alt: "Kitesurfer jumping over crystal clear waters",
   },
   {
     id: 3,
-    src: "https://pixabay.com/get/g5ed4a187d489b36b6aaaeed8b56001e7eee5a8b5e76b803166145a49ce0a7927c6e3ba7c77f3bc0ba308b8fef614a281b9ec882693f2b65831cffb1d58278502_1280.jpg",
-    alt: "Aerial view of kiteboarding beach",
+    src: "https://images.pexels.com/photos/1192454/pexels-photo-1192454.jpeg",
+    alt: "Aerial view of kiteboarding beach with multiple kites",
   },
   {
     id: 4,
-    src: "https://pixabay.com/get/g72bb60b2c17f5d06dcd842e1db0cca0b2c2c5b7671d6ea31fc3b80b8cee922d95aab817e7efd6a6f2f3b2033b91ef48d4057e210af81c44c74aa1b30f479883f_1280.jpg",
-    alt: "Close-up of kiteboarding technique",
+    src: "https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg",
+    alt: "Close-up of kiteboarding technique in action",
   },
   {
     id: 5,
-    src: "https://pixabay.com/get/g269241b6e0e8c27ccce2055c7f630b0f58e28a14a6e1902119f8c1e4ef6106bd53d3d3acd4f315d55bf8d86b5567f7647d85f79af976a51e2478d8e598b1c749_1280.jpg",
-    alt: "Wave riding with kite",
+    src: "https://images.pexels.com/photos/1170807/pexels-photo-1170807.jpeg",
+    alt: "Wave riding with colorful kite",
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
-    alt: "One-on-one kiteboarding instruction",
+    src: "https://images.pexels.com/photos/1887629/pexels-photo-1887629.jpeg",
+    alt: "One-on-one kiteboarding instruction session",
   },
   {
     id: 7,
-    src: "https://pixabay.com/get/gbbdfd2515bbc84b90d6ed9e2be7f136b1bb6ccf45af41b3b02e8d7fbfe1bb9255220d1778032e338c4af5f8adb6db058095f74cf965ffa07d203e5284dd362cb_1280.jpg",
-    alt: "Sunset kiteboarding silhouettes",
+    src: "https://images.pexels.com/photos/1718337/pexels-photo-1718337.jpeg",
+    alt: "Sunset kiteboarding silhouettes against orange sky",
   },
   {
     id: 8,
-    src: "https://pixabay.com/get/g5d2f73d9ab247a3fee8d642206c3726aae2bffed02cafba8757ccb980d94659cab9450a174cae04cb8e16a93fffd954229d63351850524f4d72efa95a42f9732_1280.jpg",
-    alt: "Kiteboarding equipment setup",
+    src: "https://images.pexels.com/photos/2526198/pexels-photo-2526198.jpeg",
+    alt: "Kiteboarding equipment setup on beach",
   },
 ];
 
@@ -86,17 +87,30 @@ const Gallery = () => {
         </div>
       </div>
 
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="sm:max-w-4xl p-0 overflow-hidden bg-transparent border-none">
-          {selectedImage && (
+      {/* Simplified image viewer */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-4xl max-h-[90vh] p-4">
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
               className="w-full h-auto max-h-[80vh] object-contain"
             />
-          )}
-        </DialogContent>
-      </Dialog>
+            <button 
+              className="absolute top-2 right-2 bg-white rounded-full p-1"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
