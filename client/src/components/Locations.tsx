@@ -80,43 +80,30 @@ const Locations = () => {
     window.initMaps = () => {
       if (mapsInitialized.current) return;
       
-      try {
-        locations.forEach((location) => {
-          const mapElement = document.getElementById(location.mapId);
-          if (!mapElement) return;
+      locations.forEach((location) => {
+        const mapElement = document.getElementById(location.mapId);
+        if (!mapElement) return;
 
-          // Create a static map image instead of interactive Google Maps
-          const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${location.coordinates.lat},${location.coordinates.lng}&zoom=12&size=600x400&markers=color:red%7C${location.coordinates.lat},${location.coordinates.lng}&key=`;
-          
-          // Create a container with location information
-          mapElement.innerHTML = `
-            <div class="relative h-full rounded-lg overflow-hidden bg-gray-100">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center p-4 bg-white/80 rounded-lg shadow-md">
-                  <h4 class="font-bold text-lg">${location.name}, ${location.country}</h4>
-                  <p class="text-sm text-gray-700">Lat: ${location.coordinates.lat.toFixed(4)}, Lng: ${location.coordinates.lng.toFixed(4)}</p>
-                  <p class="mt-2 text-xs font-medium">${location.id === "el-gouna" ? "Red Sea Coast" : "Ionian Sea"}</p>
-                </div>
-              </div>
-              <img 
-                src="${location.id === "el-gouna" 
-                  ? "https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg" 
-                  : "https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg"}" 
-                alt="${location.name} location" 
-                class="w-full h-full object-cover opacity-60"
-              />
-            </div>
-          `;
+        const map = new google.maps.Map(mapElement, {
+          center: location.coordinates,
+          zoom: 12,
+          mapId: location.mapId
         });
 
-        mapsInitialized.current = true;
-      } catch (error) {
-        console.error("Error initializing location maps:", error);
-      }
+        new google.maps.marker.AdvancedMarkerElement({
+          position: location.coordinates,
+          map,
+          title: `${location.name} Kiteboarding Spot`,
+        });
+      });
+
+      mapsInitialized.current = true;
     };
 
-    // Initialize maps immediately
-    window.initMaps();
+    // If the Google Maps API is already loaded, initialize the maps
+    if (typeof google !== "undefined" && google.maps) {
+      window.initMaps();
+    }
   }, []);
 
   return (
