@@ -87,15 +87,6 @@ const Locations = () => {
         const map = new google.maps.Map(mapElement, {
           center: location.coordinates,
           zoom: 12,
-          styles: [
-            {
-              featureType: "water",
-              elementType: "geometry",
-              stylers: [
-                { color: location.id === "el-gouna" ? "#0891B2" : "#22D3EE" },
-              ],
-            },
-          ],
           mapId: location.mapId
         });
 
