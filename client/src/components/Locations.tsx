@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-// Simplified component imports
-import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Wind, Waves, Thermometer, Umbrella, Mountain, Utensils } from "lucide-react";
 
 // Declare the global Google Maps callback function

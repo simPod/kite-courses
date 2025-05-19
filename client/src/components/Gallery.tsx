@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
-// Simplified gallery without dialog for now
-// import { Dialog, DialogContent } from "./ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface GalleryImage {
   id: number;
@@ -87,30 +86,17 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Simplified image viewer */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setSelectedImage(null)}>
-          <div className="relative max-w-4xl max-h-[90vh] p-4">
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="sm:max-w-4xl p-0 overflow-hidden bg-transparent border-none">
+          {selectedImage && (
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
               className="w-full h-auto max-h-[80vh] object-contain"
             />
-            <button 
-              className="absolute top-2 right-2 bg-white rounded-full p-1"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage(null);
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
