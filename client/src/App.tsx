@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Courses from "./components/Courses";
-import Testimonial from "./components/Testimonial";
-import Locations from "./components/Locations";
-import Gallery from "./components/Gallery";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Courses from "@/components/Courses";
+import Testimonial from "@/components/Testimonial";
+import Locations from "@/components/Locations";
+import Gallery from "@/components/Gallery";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 
 function App() {
