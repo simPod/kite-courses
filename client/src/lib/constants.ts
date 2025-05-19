@@ -1,13 +1,3 @@
-export const APP_NAME = "KiteCoach";
-
-export const COLORS = {
-  primary: "#0891B2", // ocean blue
-  secondary: "#FBBF24", // sun yellow
-  accent: "#22D3EE", // bright azure
-  background: "#F8FAFC", // cloud white
-  foreground: "#0F172A", // deep navy
-};
-
 export const LOCATIONS = {
   elGouna: {
     name: "El Gouna",
